@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title,
 };
 
-export default async function BlogListPage() {
+export default async function BlogListPage({ page = 1 }: { page?: number }) {
   return (
     <div className="flex flex-1 flex-col">
       <div className="container-wrapper">
@@ -20,7 +20,7 @@ export default async function BlogListPage() {
           <div className="flex flex-col gap-8">
             <h1 className="text-lg font-medium">{title}</h1>
             <TagList activeSlug="all" />
-            <BlogList withZenn />
+            <BlogList withZenn page={page} />
           </div>
         </div>
       </div>
